@@ -6,66 +6,86 @@
 <title>Evolvex Nova Foundation</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth;}
-body{background:#fff;color:#333;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#fff;
+  color:#333;
+}
 
 /* NAVBAR */
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
+  padding:15px 60px;
   background:linear-gradient(90deg,#ff7b00,#ffcc00);
-  position:relative;
+  position:sticky;
+  top:0;
   z-index:1000;
 }
-.logo{display:flex; align-items:center; gap:10px;}
-.logo img{height:45px;}
-.logo h2{color:#fff;}
-nav ul{display:flex; gap:25px; list-style:none;}
-nav a{color:#fff; text-decoration:none; font-weight:500;}
 
-/* HAMBURGER */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo img{
+  height:45px;
+}
+
+.logo h2{
+  color:#fff;
+}
+
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+  transition:0.3s;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* Hamburger */
 .hamburger{
   display:none;
   flex-direction:column;
   cursor:pointer;
   gap:5px;
-  z-index:1100;
+  z-index:1001;
 }
-.hamburger span{
+
+.hamburger div{
   width:25px;
   height:3px;
   background:#fff;
-  border-radius:2px;
-  transition:0.3s;
-}
-.hamburger.active span:nth-child(1){
-  transform:rotate(45deg) translate(5px,5px);
-}
-.hamburger.active span:nth-child(2){
-  opacity:0;
-}
-.hamburger.active span:nth-child(3){
-  transform:rotate(-45deg) translate(6px,-6px);
+  border-radius:3px;
+  transition:0.4s;
 }
 
-/* MOBILE NAV */
-@media(max-width:768px){
-  nav ul{
-    display:none;
-    flex-direction:column;
-    width:100%;
-    background:linear-gradient(90deg,#ff7b00,#ffcc00);
-    position:absolute;
-    top:60px;
-    left:0;
-    padding:20px 0;
-    text-align:center;
-  }
-  nav ul.show{display:flex;}
-  .hamburger{display:flex;}
-  nav ul li{margin:10px 0;}
+/* Hamburger active (X) */
+.hamburger.active div:nth-child(1){
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2){
+  opacity:0;
+}
+
+.hamburger.active div:nth-child(3){
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* HERO */
@@ -76,26 +96,92 @@ nav a{color:#fff; text-decoration:none; font-weight:500;}
   justify-content:center;
   text-align:center;
   color:#fff;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url('Images/evolvexkids.png');
   background-size:cover;
+  background-position:center;
 }
-.hero h1{font-size:3.2rem;}
-.hero p{margin:20px 0;}
-.btn{padding:12px 28px;border:none;border-radius:30px;background:linear-gradient(45deg,#ff7b00,#ffd54f);color:#fff;cursor:pointer;font-weight:600;transition:0.3s;margin:5px;}
-.btn:hover{transform:scale(1.08); box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+
+.hero h1{
+  font-size:3.2rem;
+}
+
+.hero p{
+  margin:20px 0;
+}
+
+.btn{
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff7b00,#ffd54f);
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+  margin:5px;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
 
 /* SECTIONS */
-section{padding:70px 20px;text-align:center;animation:fadeIn 1s ease;}
-@keyframes fadeIn{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
-.section-title{font-size:2.3rem;color:#ff7b00;margin-bottom:20px;}
+section{
+  padding:70px 20px;
+  text-align:center;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.section-title{
+  font-size:2.3rem;
+  color:#ff7b00;
+  margin-bottom:20px;
+}
 
 /* CARDS */
-.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:25px;}
-.card{background:#fff; padding:25px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.3s;}
-.card:hover{transform:translateY(-8px);}
-.team img{width:100%; height:260px; object-fit:cover; border-radius:10px;}
-.message{font-size:0.95rem; margin-top:10px; color:#555;}
-.programs .card{background:linear-gradient(135deg,#fff3e0,#ffe082);}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+/* TEAM */
+.team img{
+  width:100%;
+  height:365px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.message{
+  font-size:0.95rem;
+  margin-top:10px;
+  color:#555;
+}
+
+/* PROGRAMS */
+.programs .card{
+  background:linear-gradient(135deg,#fff3e0,#ffe082);
+}
 
 /* IMPACT */
 .impact{
@@ -106,38 +192,180 @@ section{padding:70px 20px;text-align:center;animation:fadeIn 1s ease;}
   flex-wrap:wrap;
   padding:50px 20px;
 }
-.impact div{margin:20px; font-size:1.5rem;}
+
+.impact div{
+  margin:20px;
+  font-size:1.5rem;
+}
 
 /* CONTACT */
-.contact-container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding:20px;max-width:1000px;margin:0 auto;}
-.contact-info, .contact-form{flex:1 1 300px;background:#fff3e0;padding:25px;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,0.08);}
-.contact-info h3, .contact-form h3{color:#ff7b00;margin-bottom:15px;}
-.contact-info p{margin:10px 0;}
-.contact-form input, .contact-form textarea{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc;outline:none;transition:0.3s;}
-.contact-form input:focus, .contact-form textarea:focus{border-color:#ff7b00; box-shadow:0 0 5px rgba(255,123,0,0.4);}
-.contact-form textarea{resize:none;height:100px;}
+.contact-container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:30px;
+  padding:20px;
+  max-width:1000px;
+  margin:0 auto;
+}
+
+.contact-info, .contact-form{
+  flex:1 1 300px;
+  background:#fff3e0;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.contact-info h3, .contact-form h3{
+  color:#ff7b00;
+  margin-bottom:15px;
+}
+
+.contact-info p{
+  margin:10px 0;
+}
+
+/* CONTACT FORM INPUTS */
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  outline:none;
+  transition:0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#ff7b00;
+  box-shadow:0 0 5px rgba(255,123,0,0.4);
+}
+
+.contact-form textarea{
+  resize:none;
+  height:100px;
+}
 
 /* FOOTER */
-footer{background:#111;color:#fff;text-align:center;padding:30px;}
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+}
 
 /* OVERLAY */
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;animation:fadeIn 0.3s ease;}
-.form-box{background:#fff;padding:30px;border-radius:15px;width:350px;max-width:90%;position:relative;animation:fadeIn 0.3s ease;}
-.form-box h3{margin-bottom:10px;color:#ff7b00;}
-.form-group{text-align:left;margin:10px 0;}
-.form-group label{font-size:0.85rem;color:#555;}
-.form-box input, .form-box select, .form-box textarea{width:100%; padding:10px;margin-top:5px;border-radius:8px;border:1px solid #ccc;outline:none;transition:0.3s;}
-.form-box input:focus, .form-box select:focus, .form-box textarea:focus{border-color:#ff7b00; box-shadow:0 0 5px rgba(255,123,0,0.4);}
-.form-box textarea{resize:none;height:80px;}
-.close{position:absolute;top:10px;right:15px;font-size:20px;cursor:pointer;}
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  animation:fadeIn 0.3s ease;
+}
 
-/* MOBILE HERO & NAV */
-@media(max-width:768px)
-{
-.hero h1{font-size:2.2rem;}
-.contact-container{flex-direction:column;}
+.form-box{
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  width:350px;
+  max-width:90%;
+  position:relative;
+  animation:fadeIn 0.3s ease;
+}
+
+.form-box h3{
+  margin-bottom:10px;
+  color:#ff7b00;
+}
+
+.form-group{
+  text-align:left;
+  margin:10px 0;
+}
+
+.form-group label{
+  font-size:0.85rem;
+  color:#555;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  outline:none;
+  transition:0.3s;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus{
+  border-color:#ff7b00;
+  box-shadow:0 0 5px rgba(255,123,0,0.4);
+}
+
+.form-box textarea{
+  resize:none;
+  height:80px;
+}
+
+.close{
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{
+    flex-direction:row;
+    justify-content:space-between;
+    padding:15px 20px;
+  }
+  nav ul{
+    position:fixed;
+    top:0;
+    right:-100%;
+    height:100%;
+    width:220px;
+    background:linear-gradient(90deg,#ff7b00,#ffcc00);
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:70px;
+    gap:20px;
+    transition:0.4s;
+    z-index:999;
+  }
+  nav ul.active{
+    right:0;
+  }
+  nav li{
+    width:100%;
+    padding-left:20px;
+  }
+  .hamburger{
+    display:flex;
+  }
+  .hero h1{font-size:2.2rem;}
+  .contact-container{
+    flex-direction:column;
+  }
 }
 </style>
+
 </head>
 
 <body>
@@ -145,24 +373,23 @@ footer{background:#111;color:#fff;text-align:center;padding:30px;}
 <!-- NAVBAR -->
 <nav>
 <div class="logo">
-<img src="logo.png" alt="Evolvex Nova Logo">
-<h2>Evolvex Nova</h2>
+<img src="Images/evolvexflogo.jpg" alt="Evolvex Nova Logo">
+<h2>Evolvex Nova Foundation</h2>
 </div>
 
-<!-- Hamburger Menu -->
-<div class="hamburger" onclick="toggleNav(this)">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-<ul>
+<ul id="nav-links">
 <li><a href="#">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#team">Leadership</a></li>
 <li><a href="#programs">Programs</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
+<div class="hamburger" id="hamburger" onclick="toggleMenu()">
+<div></div>
+<div></div>
+<div></div>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -175,28 +402,224 @@ footer{background:#111;color:#fff;text-align:center;padding:30px;}
 </div>
 </div>
 
-<!-- ABOUT, IMPACT, TEAM, PROGRAMS, SCHOLARSHIP, CONTACT, FOOTER as before -->
-<!-- ... [same as previous code above, truncated for brevity] ... -->
+<!-- ABOUT -->
+<section id="about">
+<h2 class="section-title">Who We Are</h2>
+<p>
+Evolvex Nova Foundation is a mission-driven organization committed to transforming lives through education, healthcare, and youth empowerment.
+We create opportunities, build skills, and shape a future where every individual can thrive and succeed.
+</p>
+</section>
 
-<!-- JOIN & DONATE FORMS as before -->
-<!-- ... [same as previous code above] ... -->
+<!-- IMPACT -->
+<section class="impact">
+<div><h2>500+</h2><p>Students Supported</p></div>
+<div><h2>50+</h2><p>Healthcare Outreach Programs</p></div>
+<div><h2>10+</h2><p>Community Projects</p></div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="team">
+<h2 class="section-title">Leadership</h2>
+<div class="cards">
+<div class="card">
+<img src="Images/keleb.JPG" alt="Founder">
+<h3>Caleb Onyari – Founder & Group Executive Director, Evolvex Groups</h3>
+<p class="message">
+"At Evolvex Nova Foundation, we believe in transforming potential into purpose.
+Our vision is to empower individuals with knowledge, skills, and opportunities that enable them to uplift their communities.
+We are committed to sustainable impact and long-term transformation."
+</p>
+</div>
+
+<div class="card">
+<img src="Images/emos.png" alt="Coordinator">
+<h3>Amos Ombati – Director & Program Coordinator, Evolvex Foundation</h3>
+<p class="message">
+"Our mission is rooted in service. Through our programs, we aim to bridge gaps in education, healthcare,
+and digital access. Every initiative we undertake is designed to create lasting change and real impact."
+</p>
+</div>
+</div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="programs">
+<h2 class="section-title">Our Programs</h2>
+<div class="cards">
+<div class="card">
+<h3>Education</h3>
+<p>
+<strong>Evolvex Nova Junior School</strong> – nurturing young learners through quality education and mentorship.<br><br>
+<strong>Evolvex College of Advanced Technology</strong> – offering training in Software Engineering, Web Development,
+Cybersecurity, Graphic Design, and Digital Skills to prepare students for the modern workforce.
+</p>
+</div>
+
+<div class="card">
+<h3>Healthcare</h3>
+<p>
+<strong>Evolvex Modern Medical</strong> – providing accessible, affordable, and quality healthcare services to communities.
+</p>
+</div>
+
+<div class="card">
+<h3>Youth Empowerment</h3>
+<p>Mentorship, career development, and entrepreneurship programs for young people.</p>
+</div>
+
+<div class="card">
+<h3>Technology</h3>
+<p>Equipping individuals with cutting-edge digital skills and innovation training.</p>
+</div>
+</div>
+</section>
+
+<!-- SCHOLARSHIP -->
+<section>
+<h2 class="section-title">Evolvex College of Advanced Technology Scholarships</h2>
+<p>Apply for transformative learning opportunities through our programs.</p>
+<a href="https://evolvexcollege.netlify.app" target="_blank">
+<button class="btn">Apply Now</button>
+</a>
+</section>
+
+<!-- CONTACT US -->
+<section id="contact">
+<h2 class="section-title">Contact Us</h2>
+<div class="contact-container">
+
+<!-- CONTACT INFO -->
+<div class="contact-info">
+<h3>Get in Touch</h3>
+<p><strong>Location:</strong> Nairobi, Kenya</p>
+<p><strong>Email:</strong> evolvex254@gmail.com</p>
+<p><strong>Phone:</strong> +254 755 434 453</p>
+<p><strong>Follow us:</strong> Facebook | Twitter | Instagram | LinkedIn</p>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="contact-form">
+<h3>Send a Message</h3>
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email Address">
+<input type="tel" placeholder="Phone Number">
+<textarea placeholder="Your Message"></textarea>
+<button class="btn">Send Message</button>
+</div>
+
+</div>
+</section>
+<!-- Back to Home Button -->
+<div class="text-center my-4">
+  <a href="index.html" class="btn btn-warning btn-lg">Back to Home</a>
+</div>
+<!-- FOOTER -->
+<footer>
+<p>© 2024 Evolvex Nova Foundation | All Rights Reserved</p>
+</footer>
+
+<!-- JOIN FORM -->
+<div class="overlay" id="joinBox" onclick="outsideClick(event,'joinBox')">
+<div class="form-box">
+<span class="close" onclick="closeJoin()">×</span>
+<h3>Join Evolvex Nova</h3>
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" placeholder="Enter your name">
+</div>
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="Enter your email">
+</div>
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter phone number">
+</div>
+<div class="form-group">
+<label>Area of Interest</label>
+<select>
+<option>Education</option>
+<option>Healthcare</option>
+<option>Youth Empowerment</option>
+<option>Technology</option>
+<option>Volunteering</option>
+</select>
+</div>
+<div class="form-group">
+<label>Why do you want to join?</label>
+<textarea placeholder="Tell us your motivation..."></textarea>
+</div>
+<button class="btn">Submit Application</button>
+</div>
+</div>
+
+<!-- DONATE FORM -->
+<div class="overlay" id="donateBox" onclick="outsideClick(event,'donateBox')">
+<div class="form-box">
+<span class="close" onclick="closeDonate()">×</span>
+<h3>Support Our Mission</h3>
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" placeholder="Enter your name">
+</div>
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="Enter your email">
+</div>
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter phone number">
+</div>
+<div class="form-group">
+<label>Donation Amount (KSh)</label>
+<input type="number" placeholder="Enter amount">
+</div>
+<div class="form-group">
+<label>Payment Method</label>
+<select>
+<option>M-Pesa</option>
+<option>Bank Transfer</option>
+<option>Card Payment</option>
+</select>
+</div>
+<div class="form-group">
+<label>Message (Optional)</label>
+<textarea placeholder="Leave a message..."></textarea>
+</div>
+<button class="btn">Proceed to Donate</button>
+</div>
+</div>
 
 <script>
-/* MOBILE HAMBURGER MENU WITH X */
-function toggleNav(hamburger){
-  const navLinks = document.querySelector("nav ul");
-  navLinks.classList.toggle("show");
-  hamburger.classList.toggle("active"); // toggles X animation
+// Hamburger toggle
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+function toggleMenu(){
+  hamburger.classList.toggle("active");
+  navLinks.classList.toggle("active");
 }
 
-/* JOIN & DONATE FORM */
+// Close menu when link clicked
+document.querySelectorAll("#nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    hamburger.classList.remove("active");
+  });
+});
+
+// Overlay forms
 function openJoin(){document.getElementById("joinBox").style.display="flex";}
 function closeJoin(){document.getElementById("joinBox").style.display="none";}
 function openDonate(){document.getElementById("donateBox").style.display="flex";}
 function closeDonate(){document.getElementById("donateBox").style.display="none";}
 function outsideClick(e,id){if(e.target.id===id){document.getElementById(id).style.display="none";}}
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeJoin();closeDonate();}});
+
 </script>
+
+
 
 </body>
 </html>
